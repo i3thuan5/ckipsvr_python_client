@@ -7,7 +7,7 @@ import sys
 import time
 
 
-class 用戶端連線:
+class CKIP用戶端:
     檢查結果 = re.compile('<result>(.*)</result>')
     檢查空結果 = re.compile('<result/>')
     分句 = re.compile('<sentence>(.*?)</sentence>')
@@ -28,7 +28,7 @@ class 用戶端連線:
         self.帳號 = 帳號
         self.密碼 = 密碼
 
-    def _語句做了嘛是語句(self, 語句, 等待=3, 一定愛成功=False):
+    def 斷詞(self, 語句, 等待=3, 一定愛成功=False):
         # 官方功能無記錄原本換逝資訊，所以愛一逐一擺
         結果 = []
         for 一逝 in 語句.split('\n'):
@@ -57,7 +57,7 @@ class 用戶端連線:
         連線.settimeout(等待)
         連線.connect((主機, 埠))
         資料 = self.傳去格式.format(編碼, 帳號, 密碼, 語句).encode(編碼)
-# 		print('送出', 資料)
+#         print('送出', 資料)
         已經送出去 = 0
         while 已經送出去 < len(資料):
             這擺送出去 = 連線.send(資料[已經送出去:])
@@ -75,7 +75,7 @@ class 用戶端連線:
                 走 = False
         連線.close()
         全部收著字串 = 全部收著資料.decode(編碼)
-# 		print('收著', 全部收著字串)
+#         print('收著', 全部收著字串)
         收著結果 = self.檢查結果.search(全部收著字串)
         if 收著結果 is not None:
             逐逝 = self.分句.split(收著結果.group(1))[1::2]
@@ -89,3 +89,10 @@ class 用戶端連線:
             # <processstatus code="3">Authentication failed</processstatus>
             raise RuntimeError(狀況[1])
         raise RuntimeError('回傳的資料有問題！！')
+
+
+斷詞 = CKIP用戶端(
+    主機='140.109.19.104', 埠=1501, 編碼='UTF-8',
+    帳號='ihcaoe', 密碼='aip1614'
+).斷詞
+segment = 斷詞
