@@ -5,9 +5,12 @@ python:
 - '3.5'
 env:
   matrix:
-  - CI_ENV=tan1uan5
+  - CI_ENV=試驗
+  - CI_ENV=flake8
+install:
+- pip install tox
 script:
-- tox -e tan1uan5
+- tox -e $CI_ENV
 deploy:
   provider: pypi
   user: sih4sing5hong5
@@ -17,3 +20,4 @@ deploy:
     tags: true
     distributions: sdist bdist_wheel
     repo: i3thuan5/ckipsvr_python_client
+    condition: $TOX_ENV = 試驗
