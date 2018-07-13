@@ -5,12 +5,12 @@ python:
 - '3.5'
 env:
   matrix:
-  - CI_ENV=試驗
-  - CI_ENV=flake8
+  - TOX_ENV=試驗
+  - TOX_ENV=flake8
 install:
 - pip install tox
 script:
-- tox -e $CI_ENV
+- tox -e $TOX_ENV
 after_success:
 - coverage report
 - coveralls
