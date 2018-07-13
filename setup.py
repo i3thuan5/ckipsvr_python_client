@@ -4,7 +4,7 @@ from setuptools import find_packages
 
 
 setup(
-    name='ckip',
+    name='ckiptngsu',
     packages=find_packages(exclude=('test',)),
     version='0.1.0',
     author_email='ihcaoe@gmail.com',
