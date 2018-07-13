@@ -1,0 +1,19 @@
+sudo: false
+dist: trusty
+language: python
+python:
+- '3.5'
+env:
+  matrix:
+  - CI_ENV=tan1uan5
+script:
+- tox -e tan1uan5
+deploy:
+  provider: pypi
+  user: sih4sing5hong5
+  password:
+    secure: DpYisRTjF39N1Dd2DapXWopwnETmtf0z2X4hW9rk+FMw/YenZwM83tEkXiO5Lhv0C7bQ6octreT3+1yfl8DSC6nilt0e4X0QVjulPOXYnaf+GjAXR7171L68sIgE1Um0uj2foNAXAHIRN5sjDm93gNv9evIw3Xad9GyiJgrUXDzdlHm6bD51f0WD4ARmVWgNA4YLjqU7W0AXspfvPy8L7wdHl5TTxE47VKkyJHkk+2BNoNMPfFPDhROula4+XgV9pY+OWz+xQLrQshfkOMpeDaU3J01BuPjHEexuZAWmpUuqtcxvNs/1UujlWwSminMVLmj0vdZ9H0X3swA25Ap7Bz6aHVA8h8tNln98wKudvKSgo/hSLQAZ6IJiwpDzylz1mnSmuB+FfOOBsPOMOclyyAOAfR1/YacEfoVes6JPhwDf8vc984WQg/sHeJACFElgbz/jTSPlUfoqb4lvepBYUTfkA6xTr2GQnhHwrqdBns/AXw2kfUzxfWN7zc5SyAptj5vwdDcoocWUVcKY0NZu7QB6vREgmm8upwazJUinW3TiGGs4WGptfgXYHq/LOUVBJAc6UHE3f/r9Bs0yoxnpn2IduypPw7N2ctQPGQ4kkbJCIt8Zhun+zns6G9pyx+7H0MZa/Ch0i06AWSEo0vfKV1bZpQVvGWqOSji6NrW2rwk=
+  on:
+    tags: true
+    distributions: sdist bdist_wheel
+    repo: i3thuan5/ckipsvr_python_client
